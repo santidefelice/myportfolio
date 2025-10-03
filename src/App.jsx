@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import LoadingScreen from './components/LoadingScreen'
+import LoadingScreen from './LoadingScreen/LoadingScreen'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
