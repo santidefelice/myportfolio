@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import './App.css'
+import Hero from './components/Hero'
+import TheGarage from './Garage/TheGarage'
 import LoadingScreen from './LoadingScreen/LoadingScreen'
 
 function App() {
@@ -20,17 +22,8 @@ function App() {
         </header>
         
         <main className="portfolio-main">
-          <section className="hero-section">
-            <div className="hero-content">
-              <h2>Welcome to the Fast Lane</h2>
-              <p>Where speed meets precision in web development</p>
-            </div>
-          </section>
-          
-          <section className="content-section">
-            <h3>Portfolio Content Coming Soon</h3>
-            <p>This is where your racing-themed portfolio content will go.</p>
-          </section>
+          <Hero />
+          <TheGarage />
         </main>
       </div>
     </>

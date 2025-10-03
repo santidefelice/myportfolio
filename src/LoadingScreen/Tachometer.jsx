@@ -12,7 +12,7 @@ const Tachometer = ({ isLoading, onComplete }) => {
       setIsAnimating(true);
       
       // Animate RPM from 0 to redline (8000 RPM)
-      const duration = 30000; // 4 seconds
+      const duration = 3000; // 4 seconds
       const targetRpm = 8000;
       const startTime = Date.now();
       
