@@ -1,0 +1,215 @@
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 1s ease-out;
+  overflow: visible;
+}
+
+.loading-screen.fade-out {
+  opacity: 0;
+}
+
+.loading-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.racing-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.speed-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.speed-line {
+  position: absolute;
+  width: 2px;
+  height: 100px;
+  background: linear-gradient(to bottom, transparent, #ff4444, transparent);
+  opacity: 0.3;
+  animation: speedLineMove 2s linear infinite;
+}
+
+.speed-line:nth-child(1) {
+  left: 10%;
+  animation-delay: 0s;
+  animation-duration: 2.5s;
+}
+
+.speed-line:nth-child(2) {
+  left: 25%;
+  animation-delay: 0.5s;
+  animation-duration: 2s;
+}
+
+.speed-line:nth-child(3) {
+  left: 50%;
+  animation-delay: 1s;
+  animation-duration: 1.8s;
+}
+
+.speed-line:nth-child(4) {
+  left: 75%;
+  animation-delay: 1.5s;
+  animation-duration: 2.2s;
+}
+
+.speed-line:nth-child(5) {
+  left: 90%;
+  animation-delay: 2s;
+  animation-duration: 2.8s;
+}
+
+@keyframes speedLineMove {
+  0% {
+    top: -100px;
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.3;
+  }
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    top: 100vh;
+    opacity: 0;
+  }
+}
+
+.corner-markers {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.corner-marker {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #ff4444;
+  opacity: 0.4;
+}
+
+.corner-marker.top-left {
+  top: 20px;
+  left: 20px;
+  border-right: none;
+  border-bottom: none;
+  animation: cornerGlow 3s ease-in-out infinite;
+}
+
+.corner-marker.top-right {
+  top: 20px;
+  right: 20px;
+  border-left: none;
+  border-bottom: none;
+  animation: cornerGlow 3s ease-in-out infinite 0.5s;
+}
+
+.corner-marker.bottom-left {
+  bottom: 20px;
+  left: 20px;
+  border-right: none;
+  border-top: none;
+  animation: cornerGlow 3s ease-in-out infinite 1s;
+}
+
+.corner-marker.bottom-right {
+  bottom: 20px;
+  right: 20px;
+  border-left: none;
+  border-top: none;
+  animation: cornerGlow 3s ease-in-out infinite 1.5s;
+}
+
+@keyframes cornerGlow {
+  0%, 100% {
+    opacity: 0.2;
+    box-shadow: 0 0 5px rgba(255, 68, 68, 0.3);
+  }
+  50% {
+    opacity: 0.6;
+    box-shadow: 0 0 15px rgba(255, 68, 68, 0.6);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .corner-marker {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .corner-marker.top-left,
+  .corner-marker.top-right {
+    top: 15px;
+  }
+  
+  .corner-marker.bottom-left,
+  .corner-marker.bottom-right {
+    bottom: 15px;
+  }
+  
+  .corner-marker.top-left,
+  .corner-marker.bottom-left {
+    left: 15px;
+  }
+  
+  .corner-marker.top-right,
+  .corner-marker.bottom-right {
+    right: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .corner-marker {
+    width: 25px;
+    height: 25px;
+  }
+  
+  .corner-marker.top-left,
+  .corner-marker.top-right {
+    top: 10px;
+  }
+  
+  .corner-marker.bottom-left,
+  .corner-marker.bottom-right {
+    bottom: 10px;
+  }
+  
+  .corner-marker.top-left,
+  .corner-marker.bottom-left {
+    left: 10px;
+  }
+  
+  .corner-marker.top-right,
+  .corner-marker.bottom-right {
+    right: 10px;
+  }
+}

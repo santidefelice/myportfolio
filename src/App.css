@@ -1,0 +1,179 @@
+/* Racing Portfolio Styles */
+.portfolio-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+  color: #ffffff;
+  font-family: 'Courier New', monospace;
+}
+
+.portfolio-header {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 68, 68, 0.1) 50%, transparent 100%);
+  border-bottom: 2px solid #ff4444;
+  position: relative;
+}
+
+.portfolio-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(255, 68, 68, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(255, 68, 68, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.portfolio-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ff4444;
+  text-shadow: 0 0 20px rgba(255, 68, 68, 0.5);
+  margin: 0;
+  letter-spacing: 2px;
+  animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+.portfolio-subtitle {
+  font-size: 1.2rem;
+  color: #cccccc;
+  margin: 0.5rem 0 0 0;
+  letter-spacing: 1px;
+}
+
+@keyframes titleGlow {
+  0% { text-shadow: 0 0 20px rgba(255, 68, 68, 0.5); }
+  100% { text-shadow: 0 0 30px rgba(255, 68, 68, 0.8); }
+}
+
+.portfolio-main {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-section {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(45deg, rgba(255, 68, 68, 0.05) 0%, transparent 50%, rgba(255, 68, 68, 0.05) 100%);
+  border-radius: 10px;
+  margin-bottom: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, transparent, rgba(255, 68, 68, 0.1), transparent);
+  animation: rotate 10s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content h2 {
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  color: #cccccc;
+  margin: 0;
+}
+
+.content-section {
+  background: rgba(26, 26, 26, 0.8);
+  padding: 2rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 68, 68, 0.2);
+  text-align: center;
+}
+
+.content-section h3 {
+  color: #ff4444;
+  font-size: 1.8rem;
+  margin: 0 0 1rem 0;
+  text-shadow: 0 0 5px rgba(255, 68, 68, 0.3);
+}
+
+.content-section p {
+  color: #cccccc;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .portfolio-title {
+    font-size: 2.5rem;
+  }
+  
+  .portfolio-subtitle {
+    font-size: 1rem;
+  }
+  
+  .hero-content h2 {
+    font-size: 2rem;
+  }
+  
+  .hero-content p {
+    font-size: 1rem;
+  }
+  
+  .content-section h3 {
+    font-size: 1.5rem;
+  }
+  
+  .content-section p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolio-header {
+    padding: 1.5rem 1rem;
+  }
+  
+  .portfolio-title {
+    font-size: 2rem;
+  }
+  
+  .portfolio-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .hero-section {
+    padding: 2rem 1rem;
+  }
+  
+  .hero-content h2 {
+    font-size: 1.8rem;
+  }
+  
+  .portfolio-main {
+    padding: 1rem;
+  }
+  
+  .content-section {
+    padding: 1.5rem;
+  }
+}

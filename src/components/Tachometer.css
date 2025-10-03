@@ -1,0 +1,187 @@
+.tachometer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+  position: relative;
+  overflow: visible;
+  padding: 50px 0;
+}
+
+.tachometer-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(255, 68, 68, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 68, 68, 0.1) 0%, transparent 50%);
+  animation: ambientGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes ambientGlow {
+  0% { opacity: 0.3; }
+  100% { opacity: 0.7; }
+}
+
+.tachometer {
+  position: relative;
+  z-index: 1;
+  transition: all 0.2s ease;
+}
+
+.tachometer.bouncing {
+  animation: revLimiterBounce 0.2s ease-in-out infinite;
+}
+
+@keyframes revLimiterBounce {
+  0%, 100% { 
+    transform: scale(1);
+    filter: drop-shadow(0 0 20px rgba(255, 68, 68, 0.3));
+  }
+  50% { 
+    transform: scale(1.02);
+    filter: drop-shadow(0 0 30px rgba(255, 68, 68, 0.8));
+  }
+}
+
+.tachometer-svg {
+  filter: drop-shadow(0 0 20px rgba(255, 68, 68, 0.3));
+}
+
+.tachometer-background {
+  filter: drop-shadow(0 0 10px rgba(255, 68, 68, 0.2));
+}
+
+.rpm-text {
+  fill: #cccccc;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.redline-text {
+  fill: #ff4444;
+  text-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
+}
+
+.needle-group {
+  transform-origin: 150px 150px;
+}
+
+.needle {
+  filter: drop-shadow(0 0 8px rgba(255, 68, 68, 0.6));
+  transition: transform 0.1s ease-out;
+}
+
+.bouncing .needle {
+  animation: needleFlash 0.1s ease-in-out infinite;
+}
+
+@keyframes needleFlash {
+  0%, 100% { 
+    filter: drop-shadow(0 0 8px rgba(255, 68, 68, 0.6));
+  }
+  50% { 
+    filter: drop-shadow(0 0 15px rgba(255, 68, 68, 1));
+  }
+}
+
+.needle-center {
+  filter: drop-shadow(0 0 5px rgba(255, 68, 68, 0.4));
+}
+
+.center-text {
+  fill: #ff4444;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(255, 68, 68, 0.3);
+}
+
+.digital-rpm {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  margin-top: 60px;
+}
+
+.rpm-value {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #ff4444;
+  font-family: 'Courier New', monospace;
+  text-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
+  animation: digitalGlow 2s ease-in-out infinite alternate;
+}
+
+.rpm-label {
+  display: block;
+  font-size: 1rem;
+  color: #cccccc;
+  font-family: 'Courier New', monospace;
+  margin-top: 5px;
+}
+
+@keyframes digitalGlow {
+  0% { text-shadow: 0 0 10px rgba(255, 68, 68, 0.5); }
+  100% { text-shadow: 0 0 20px rgba(255, 68, 68, 0.8); }
+}
+
+.loading-text {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.loading-dots {
+  color: #ff4444;
+  font-family: 'Courier New', monospace;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(255, 68, 68, 0.3);
+  animation: loadingPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes loadingPulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .tachometer-svg {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .rpm-value {
+    font-size: 2rem;
+  }
+  
+  .loading-dots {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tachometer-svg {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .rpm-value {
+    font-size: 1.5rem;
+  }
+  
+  .loading-dots {
+    font-size: 0.9rem;
+  }
+}
